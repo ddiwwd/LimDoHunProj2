@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" id="WebApp_ID" version="6.0">
+  <servlet>
+    <servlet-name>HELLO-SERVLET</servlet-name>
+    <servlet-class>controller.HelloServlet</servlet-class>
+  </servlet>
+   
+  <servlet>
+    <servlet-name>JOINMEMBERSHIP</servlet-name>
+    <servlet-class>controller.HelloServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>HELLO-SERVLET</servlet-name>
+    <url-pattern>/HelloServlet.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>CALCULATOR-SERVLET</servlet-name>
+    <servlet-class>controller.CalculatorServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CALCULATOR-SERVLET</servlet-name>
+    <url-pattern>/Calculator.ict</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>CONTENT-TYPE</servlet-name>
+    <servlet-class>controller.ContentTypeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CONTENT-TYPE</servlet-name>
+    <url-pattern>/AniDIR/SomeDIR/SetContentType</url-pattern>
+  </servlet-mapping>
+  <context-param>
+    <param-name>ORACLE-DRIVER</param-name>
+    <param-value>oracle.jdbc.OracleDriver</param-value>
+  </context-param>
+  <context-param>
+    <param-name>ORACLE-URL</param-name>
+    <param-value>jdbc:oracle:thin:@localhost:1521/XEPDB1</param-value>
+  </context-param>
+  <context-param>
+    <param-name>COOKIE-NAME</param-name>
+    <param-value>User-Token</param-value>
+  </context-param>
+  <context-param>
+    <param-name>JNDI-ROOT</param-name>
+    <param-value>java:comp/env</param-value>
+  </context-param>
+  <servlet>
+    <servlet-name>SERVLET-PARAMETER</servlet-name>
+    <jsp-file>/builtinobject03/ApplicationForMajorMethod1.jsp</jsp-file>
+    <init-param>
+      <param-name>SERVLET-INIT-PARAMETER</param-name>
+      <param-value>서블릿 초기화 파라미터</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SERVLET-PARAMETER</servlet-name>
+    <url-pattern>/builtinobject03/ApplicationForMajorMethod.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>PAGING-PARAMETER</servlet-name>
+    <servlet-class>controller.myproject.DeleteController</servlet-class>
+    <init-param>
+      <param-name>PAGE-SIZE</param-name>
+      <param-value>2</param-value>
+    </init-param>
+    <init-param>
+      <param-name>BLOCK-PAGE</param-name>
+      <param-value>5</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>PAGING-PARAMETER</servlet-name>
+    <url-pattern>/bbs08/List.jsp</url-pattern>
+  </servlet-mapping>
+  <session-config>
+    <session-timeout>10</session-timeout>
+  </session-config>
+  <jsp-config>
+    <taglib>
+      <taglib-uri>/WEB-INF/tlds/mytaglib.tld</taglib-uri>
+      <taglib-location>/WEB-INF/tlds/mytaglib.tld</taglib-location>
+    </taglib>
+  </jsp-config>
+  
+  <servlet>
+    <servlet-name>FileUploadController</servlet-name>
+    <servlet-class>controller.fileupload.FileUploadController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FileUploadController</servlet-name>
+    <url-pattern>/fileupload/Upload.nhn</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SERVLET-BASIC-GET</servlet-name>
+    <servlet-class>controller.basic.GetController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SERVLET-BASIC-GET</servlet-name>
+    <url-pattern>/Basic/get.ict</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SERVLET-BASIC-POST</servlet-name>
+    <servlet-class>controller.basic.PostController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SERVLET-BASIC-POST</servlet-name>
+    <url-pattern>/Basic/post.ict</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BothController</display-name>
+    <servlet-name>BothController</servlet-name>
+    <servlet-class>controller.basic.BothController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BothController</servlet-name>
+    <url-pattern>/Basic/both.ict</url-pattern>
+  </servlet-mapping>
+  <!-- 자동 등록된 필터:도구 사용시 -->
+  <!-- @WebFilter어노테이션 사용시 주석 -->
+  <!--  
+  <filter>
+    <display-name>RuntimeFilter</display-name>
+    <filter-name>RuntimeFilter</filter-name>
+    <filter-class>filter.RuntimeFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>RuntimeFilter</filter-name>
+    <url-pattern>/bbs08/*</url-pattern>
+  </filter-mapping>
+  -->
+  
+  <!-- 설정을 통한 예외처리 -->
+  <!-- 방법1]에러코드로 -->
+  <!--  
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/error15/ErrorCode.jsp</location>
+  </error-page>
+  -->
+  <!-- 방법2]예외 클래스로 -->
+  <!--  
+  <error-page>
+  	<exception-type>java.lang.NullPointerException</exception-type>
+  	<location>/error15/ErrorType.jsp</location>
+  </error-page>
+  -->
+  <welcome-file-list>
+  	<!-- 자료실 시작 페이지 용 -->
+  	<welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.html</welcome-file>    
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+</web-app>
